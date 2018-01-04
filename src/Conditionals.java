@@ -1,5 +1,6 @@
+import java.util.Objects;
+
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by alexandraqin on 4/14/15.
@@ -14,6 +15,33 @@ public class Conditionals {
     fizzMultipleOfThree(27);
   }
 
+  public static boolean cigarPartySuccess(int cigars, boolean isWeekend) {
+    if (isWeekend) {
+      return cigars >= 40;
+    } else {
+      return cigars >= 40 && cigars <= 60;
+    }
+  }
+
+  public static int caughtSpeeding(int speed, boolean isBirthday) {
+    if (isBirthday) {
+      if (speed <= 65) {
+        return 0;
+      } else if (speed <= 85) {
+        return 1;
+      } else {
+        return 2;
+      }
+    } else {
+      if (speed <= 60) {
+        return 0;
+      } else if (speed <= 80) {
+        return 1;
+      } else {
+        return 2;
+      }
+    }
+  }
 
   public static boolean evenlySpaced(int a, int b, int c) {
     int[] space = {a, b, c};
@@ -71,6 +99,17 @@ public class Conditionals {
     }
   }
 
+
+  private static boolean personFromLondon(Person person) {
+    return Objects.equals(person.getCity(), "London");
+  }
+
+  private static void personPrintName(Person person) {
+    String personName = person.getName();
+    if (personName.length() > 5) {
+      System.out.println(personName);
+    }
+  }
 
   private static void fizzMultipleOfThree(int i) {
     if (i % 3 == 0) {
