@@ -1,5 +1,8 @@
 import java.util.Objects;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by alexandraqin on 4/14/15.
  */
@@ -12,6 +15,64 @@ public class Conditionals {
     isOddAndIsMultipleOfThree2(27);
     fizzMultipleOfThree(27);
   }
+
+
+  public static boolean evenlySpaced(int a, int b, int c) {
+    int[] space = {a, b, c};
+    Arrays.sort(space);
+    if (space[2] - space[1] == space[1] - space[0]) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public static String alarmClock(int day, boolean vacation) {
+    if (vacation) {
+      if (day > 0 && day < 6) {
+        return "10:00";
+      } else {
+        return "off";
+      }
+    } else {
+      if (day > 0 && day < 6) {
+        return "7:00";
+      } else {
+        return "10:00";
+      }
+    }
+  }
+
+  public int greenLotteryTicket(int a, int b, int c) {
+    if (a == b && b == c) {
+      return 20;
+    }
+    if (a == b || b == c || c == a) {
+      return 10;
+    }
+    return 0;
+  }
+
+  public int blackJack(int a, int b) {
+    if (a == 21 && b == 21) {
+      a = 0;
+      b = 0;
+    }
+
+    if (a > 21) {
+      a = 0;
+    }
+    if (b > 21) {
+      b = 0;
+    }
+
+    if (a > b) {
+      return a;
+    } else {
+      return b;
+    }
+  }
+
 
   private static boolean personFromLondon(Person person) {
     return Objects.equals(person.getCity(), "London");
