@@ -35,4 +35,5 @@ public class ClassesAndObjects {
   public void adoption(Cat cat, Person person) {
     cat.setOwner(person);
   }
+
 }
