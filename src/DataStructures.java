@@ -27,29 +27,30 @@ public class DataStructures {
     Cat cat4 = new Cat("Whisker's");
     catArrayList.add(cat4);
 
-    for (int i = 0; i <catArrayList.size(); i++){
+    for (int i = 0; i < catArrayList.size(); i++) {
       System.out.println("Cat name: " + catArrayList.get(i).getName());
     }
 
-    ArrayList <Integer> integers = new ArrayList<>();
-    for(int i =0 ; i< 40 ; i++){
-      int next = random.nextInt(10)+1;
+    ArrayList<Integer> integers = new ArrayList<>();
+    for (int i = 0; i < 40; i++) {
+      int next = random.nextInt(10) + 1;
       integers.add(next);
     }
     mostFrequentElement(integers);
   }
-  public static void mostFrequentElement(ArrayList <Integer> integers){
 
-    Map<Integer , Integer> integerMap = new HashMap<>();
-    for(int i =0; i<integers.size(); i++){
+  public static void mostFrequentElement(ArrayList<Integer> integers) {
+
+    Map<Integer, Integer> integerMap = new HashMap<>();
+    for (int i = 0; i < integers.size(); i++) {
       Integer count = integerMap.get(integers.get(i));
-      integerMap.put(integers.get(i) , count==null? 1 : count+1);
+      integerMap.put(integers.get(i), count == null ? 1 : count + 1);
     }
-   int max =  Collections.max(integerMap.values());
-    for(Entry<Integer, Integer> entry : integerMap.entrySet()){
-      if(entry.getValue() == max ){
+    int max = Collections.max(integerMap.values());
+    for (Entry<Integer, Integer> entry : integerMap.entrySet()) {
+      if (entry.getValue() == max) {
         System.out.println(integerMap);
-        System.out.println(entry.getKey() +" appears "+ max+" times");
+        System.out.println(entry.getKey() + " appears " + max + " times");
       }
     }
 
