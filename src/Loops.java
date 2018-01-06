@@ -7,26 +7,27 @@ import java.util.List;
 public class Loops {
 
   public static void main(String args[]) {
-  //  sumNumbers("a22bbb3");
-  //  wordEnds("abc1xyz1abc", "abc");
-   // numberpuzzle();
+    //  sumNumbers("a22bbb3");
+    //  wordEnds("abc1xyz1abc", "abc");
+    // numberpuzzle();
     digits();
   }
-  public static void digits(){
-    for(int i = 10 ; i <=99 ; i++){
-      int digit2 = i%10;
-      int digit1 = i/10;
-      System.out.println(i +", "+ digit1+ "+"+digit2 +" = "+ (digit1+digit2));
+
+  public static void digits() {
+    for (int i = 10; i <= 99; i++) {
+      int digit2 = i % 10;
+      int digit1 = i / 10;
+      System.out.println(i + ", " + digit1 + "+" + digit2 + " = " + (digit1 + digit2));
     }
 
   }
 
-  private static void numberpuzzle(){
+  private static void numberpuzzle() {
     System.out.println("list of combinations");
-    for(int i = 0; i<200 ;i++){
-      for(int j =0; j<200;j++){
-        if(i+j == 60 && i-j == 14){
-          System.out.println(i +" "+ j);
+    for (int i = 0; i < 200; i++) {
+      for (int j = 0; j < 200; j++) {
+        if (i + j == 60 && i - j == 14) {
+          System.out.println(i + " " + j);
         }
       }
     }
@@ -77,13 +78,16 @@ public class Loops {
     int stringLength = str.length();
     int wordLength = word.length();
     StringBuilder result = new StringBuilder();
-    int length = stringLength - wordLength + 1; // we want to compare sub strings but need to avoid nullpointer
+    int length = stringLength - wordLength
+        + 1; // we want to compare sub strings but need to avoid nullpointer
     for (int i = 0; i < length; i++) {
       String tmp = str.substring(i, i + wordLength);  // substring size of word string
-      if (i > 0 && tmp.equals(word)) { // there is no letter prior to the left corner so we cant add a letter before this because of null pointers
+      if (i > 0 && tmp.equals(
+          word)) { // there is no letter prior to the left corner so we cant add a letter before this because of null pointers
         result.append(str.substring(i - 1, i)); //
       }
-      if (i < stringLength - wordLength && tmp.equals(word)) { // else as long as the string is not in the right corner we can take a letter after it else null pointer
+      if (i < stringLength - wordLength && tmp.equals(
+          word)) { // else as long as the string is not in the right corner we can take a letter after it else null pointer
         result.append(str.substring(i + wordLength, i + wordLength + 1));
       }
     }
