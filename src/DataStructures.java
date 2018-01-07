@@ -1,3 +1,4 @@
+import com.sun.org.apache.xpath.internal.operations.String;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -37,17 +38,22 @@ public class DataStructures {
       int next = random.nextInt(10) + 1;
       integers.add(next);
     }
+
+    mostFrequentElement(integers);
   }
 
   public static void mostFrequentElement(ArrayList<Integer> integers) {
 
-    Map<Integer, Integer> integerMap = new HashMap<>();
+    HashMap<Integer, Integer> integerMap = new HashMap<>();
     for (int i = 0; i < integers.size(); i++) {
       Integer count = integerMap.get(integers.get(i));
+      //Integer used to create a ternary operator within the integerMap
+      //Ternary operator accounts for null refrence since current count maybe be null at the beginning of the loop;
       integerMap.put(integers.get(i), count == null ? 1 : count + 1);
     }
-    int max = Collections.max(integerMap.values());
-    for (Entry<Integer, Integer> entry : integerMap.entrySet()) {
+    int max = Collections.max(integerMap.values()); //get Max value in the hash map
+    for (Entry<Integer, Integer> entry : integerMap
+        .entrySet()) { // loop through map since collections max just returns value not the key
       if (entry.getValue() == max) {
         System.out.println(integerMap);
         System.out.println(entry.getKey() + " appears " + max + " times");
